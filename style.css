@@ -1,0 +1,237 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.welcome-banner {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 30px;
+}
+
+.welcome-text {
+    font-size: 1.8em;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.name-highlight {
+    color: #c3e6ff;
+}
+
+.container {
+    background-color: #252525;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    width: 95%;
+    max-width: 650px;
+}
+
+.container h1 {
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    color: #e0e0e0;
+}
+
+.balance-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: #333;
+    padding: 20px 25px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex: 1;
+    margin: 0 10px;
+    position: relative; /* Adicione esta linha */
+}
+.card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+}
+.card h3 {
+    margin-bottom: 8px;
+    font-size: 1.2em;
+    color: #ddd;
+}
+.card p {
+    font-size: 1.5em;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+.card p.updated {
+    transform: scale(1.1);
+    color: #c3e6ff;
+}
+.card.saldo {
+    background-color: #2e7d32;
+}
+.card.gastos {
+    background-color: #b71c1c;
+}
+.card.investidos {
+    background-color: #1565c0;
+}
+.card.meta{
+     background-color: #7e57c2; /* Cor violeta */
+}
+
+.modern-button {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 15px 5px;
+    display: inline-block;
+    font-size: 1em;
+}
+.modern-button:hover {
+    background-color: #555;
+    transform: translateY(-3px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+.modern-button:active{
+    transform: translateY(-1px);
+     box-shadow: none;
+}
+.modern-button.confirm {
+    background-color: #1e88e5;
+}
+.modern-button.confirm:hover{
+   background-color: #1565c0;
+}
+.modern-button.saldo {
+    background-color: #388e3c;
+}
+.modern-button.saldo:hover{
+    background-color: #2e7d32;
+}
+.modern-button.gastos {
+    background-color: #e53935;
+}
+.modern-button.gastos:hover{
+    background-color: #b71c1c;
+}
+.modern-button.investidos {
+    background-color: #1e88e5;
+}
+.modern-button.investidos:hover {
+    background-color: #1565c0;
+}
+.modern-button.meta{
+   background-color: #512da8;
+}
+ .modern-button.meta:hover{
+    background-color: #4527a0;
+}
+
+#toggle-transaction {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#toggle-transaction.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.transaction-options, .transaction-input {
+     opacity: 0;
+     transform: translateY(-20px);
+     transition: all 0.3s ease;
+     margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.transaction-options.visible, .transaction-input.visible {
+    opacity: 1;
+     transform: translateY(0);
+}
+
+
+.transaction-input input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    color: #f0f0f0;
+    background-color: #333;
+    font-size: 1em;
+     margin-bottom: 10px;
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Estilos do container do QR Code */
+.qr-code-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #252525;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    text-align: center;
+      opacity: 0;
+     transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.qr-code-container.visible{
+     opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
+}
+.qr-code-container img {
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+.qr-code-container input {
+        padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    color: #f0f0f0;
+    background-color: #333;
+    font-size: 1em;
+     margin-bottom: 10px;
+    display: block;
+}
+.modern-button.close-qr-code{
+        background-color: #333;
+     margin-top: 10px;
+}
+.modern-button.close-qr-code:hover{
+   background-color: #444;
+}
+.modern-button.export-csv{
+    background-color: #333;
+     margin-top: 10px;
+}
+.modern-button.export-csv:hover{
+   background-color: #444;
+}

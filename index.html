@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financeiro Dark</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="welcome-banner">
+        <h2 class="welcome-text">Seja Bem-Vindo, <span class="name-highlight">Ridelvan</span>!</h2>
+    </div>
+    <div class="container">
+        <h1>Seu Financeiro</h1>
+        <div class="balance-cards">
+            <div class="card saldo">
+                <h3>Saldo</h3>
+                <p id="saldo-value">R$ 0.00</p>
+            </div>
+           <div class="card meta">
+                <h3>Meta Saldo</h3>
+                <p id="meta-saldo-value">R$ 0.00</p>
+           </div>
+            <div class="card gastos">
+                <h3>Gastos</h3>
+                <p id="gastos-value">R$ 0.00</p>
+            </div>
+            <div class="card investidos">
+                <h3>Investidos</h3>
+                <p id="investidos-value">R$ 0.00</p>
+            </div>
+        </div>
+        <button id="toggle-transaction" class="modern-button">Selecionar Transação</button>
+        <div id="transaction-options" class="transaction-options hidden">
+            <button data-type="saldo" class="modern-button saldo">Adicionar Saldo</button>
+               <button data-type="meta" class="modern-button meta">Adicionar à Meta</button>
+            <button data-type="gastos" class="modern-button gastos">Adicionar Gasto</button>
+            <button data-type="investidos" class="modern-button investidos">Adicionar Investimento</button>
+        </div>
+         <div id="qr-code-container" class="qr-code-container hidden">
+              <img src="qr_code.png" alt="QR Code de Pagamento">
+               <input type="number" id="transaction-amount" placeholder="Valor">
+             <button id="confirm-saldo-btn" class="modern-button confirm">Confirmar Saldo</button>
+               <button id="close-qr-code-btn" class="modern-button close-qr-code">Fechar QR Code</button>
+        </div>
+        <div id="transaction-input" class="transaction-input hidden">
+             <input type="text" id="transaction-description" placeholder="Descrição do Gasto">
+            <input type="number" id="transaction-amount-gasto-invest" placeholder="Valor">
+             <button id="confirm-transaction" class="modern-button confirm">Confirmar</button>
+        </div>
+         <button id="export-csv-btn" class="modern-button export-csv">Exportar CSV</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
